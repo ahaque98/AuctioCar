@@ -1,3 +1,6 @@
+using AuctionService.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AuctionService
 {
     public class Program
@@ -8,7 +11,16 @@ namespace AuctionService
 
             // Add services to the container.c   
             builder.Services.AddControllers();
-            
+
+            //db connection configuration
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+            //db connection service
+            builder.Services.AddDbContext<AuctionDbContext>(data =>
+            {
+                data.UseNpgsql(connectionString);
+            });
+
             var app = builder.Build();
 
             app.UseAuthorization();
