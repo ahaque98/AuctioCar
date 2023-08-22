@@ -28,6 +28,7 @@ namespace AuctionService
             app.MapControllers();
 
             app.Run();
+                        
         }
     }
 }
