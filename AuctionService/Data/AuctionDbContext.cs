@@ -7,9 +7,9 @@ namespace AuctionService.Data
     {
         public AuctionDbContext(DbContextOptions options) : base(options)
         {
-
+            
         }
 
-        public DbSet<Auction> Auctions { get; set; }
+        public DbSet<Auction> Auctions { get; set; }               
     }
 }
