@@ -23,12 +23,24 @@ namespace AuctionService
 
             var app = builder.Build();
 
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             app.UseAuthorization();
 
             app.MapControllers();
 
+            try
+            { 
+                DbInitializer.InitDb(app);
+            }
+            catch (Exception message)
+            {
+
+                Console.WriteLine(message);
+            }
+
             app.Run();
-                        
+
         }
     }
 }
