@@ -1,9 +1,11 @@
 ﻿using AuctionService.Entities.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace AuctionService.Entities
 {
     public class Auction
     {
+        [Key]
         public Guid Key { get; set; }
         public int ReservePrice { get; set; }
         public string Seller { get; set; } //username from Claim (Auth)
