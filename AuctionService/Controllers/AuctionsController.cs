@@ -46,6 +46,7 @@ namespace AuctionService.Controllers
         public async Task<ActionResult<AuctionDto>> CreateAuction(CreateAuctionDto auctionDto)
         {
             var auction = _mapper.Map<Auction>(auctionDto);
+
             // TODO: add current user as seller
             auction.Seller = "test";
 

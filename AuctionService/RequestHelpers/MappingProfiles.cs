@@ -8,15 +8,11 @@ namespace AuctionService.RequestHelpers
     {
         public MappingProfiles()
         {
-            //source //destination //adding item properties to auction dto
-            CreateMap<Auction, AuctionDto>().IncludeMembers(member => member.Item);
-
-            //source //destination 
+            CreateMap<Auction, AuctionDto>().IncludeMembers(x => x.Item);
             CreateMap<Item, AuctionDto>();
-
-            CreateMap<CreateAuctionDto, Auction>().ForMember(destination => destination.Item, o => o.MapFrom(s => s));
-
-            CreateMap<AuctionDto, Item>();
+            CreateMap<CreateAuctionDto, Auction>()
+                .ForMember(d => d.Item, o => o.MapFrom(s => s));
+            CreateMap<CreateAuctionDto, Item>();
         }
     }
 }
