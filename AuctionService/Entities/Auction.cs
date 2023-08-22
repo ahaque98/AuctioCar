@@ -7,7 +7,7 @@ namespace AuctionService.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        public int ReservePrice { get; set; }
+        public int ReservePrice { get; set; } = 0;
         public string Seller { get; set; } //username from Claim (Auth)
         public string Winner { get; set; } 
         public int SoldAmount { get; set; }

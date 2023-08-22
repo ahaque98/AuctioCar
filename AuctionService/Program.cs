@@ -2,7 +2,7 @@ using AuctionService.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuctionService
-{
+{ 
     public class Program
     {
         public static void Main(string[] args)
@@ -20,6 +20,9 @@ namespace AuctionService
             {
                 data.UseNpgsql(connectionString);
             });
+
+            //adding automapper service
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //will look for profile automatically
 
             var app = builder.Build();
 
