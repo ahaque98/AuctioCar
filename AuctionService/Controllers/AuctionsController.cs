@@ -94,7 +94,7 @@ namespace AuctionService.Controllers
 
             _context.Auctions.Remove(auction);
 
-            var result = await _context.SaveChangesAsync() > 0;
+            var result = await _context.SaveChangesAsync() >   0;
 
             if (!result) return BadRequest("Could not update DB");
 
